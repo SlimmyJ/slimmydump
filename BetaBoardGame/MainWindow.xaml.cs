@@ -22,8 +22,6 @@ namespace BetaBoardGame
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Ellipse _windowEllipse;
-        private Grid _windowGrid;
         public int Locationy = 0;
         public int Locationx = 0;
 
@@ -99,7 +97,7 @@ namespace BetaBoardGame
             }
         }
 
-        private void ButtonUP_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonUp_OnClick(object sender, RoutedEventArgs e)
         {
             if (Locationy == 0)
             {
@@ -112,7 +110,7 @@ namespace BetaBoardGame
             Grid.SetRow(EllipsePlayer, Locationy);
         }
 
-        private void ButtonDOWN_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonDown_OnClick(object sender, RoutedEventArgs e)
         {
             if (Locationy == 9)
             {
@@ -125,7 +123,7 @@ namespace BetaBoardGame
             Grid.SetRow(EllipsePlayer, Locationy);
         }
 
-        private void ButtonLEFT_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonLeft_OnClick(object sender, RoutedEventArgs e)
         {
             if (Locationx == 0)
             {
@@ -138,7 +136,7 @@ namespace BetaBoardGame
             Grid.SetColumn(EllipsePlayer, Locationx);
         }
 
-        private void ButtonRIGHT_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonRight_OnClick(object sender, RoutedEventArgs e)
         {
             if (Locationx == 9)
             {

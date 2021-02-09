@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:BetaBoardGame"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="BoardGameGridLayer1"
+               TargetType="Grid">
+            <Setter Property="Background"
+                    Value="MediumSeaGreen" />
+            <Setter Property="ShowGridLines"
+                    Value="True" />
+        </Style>
     </Application.Resources>
 </Application>

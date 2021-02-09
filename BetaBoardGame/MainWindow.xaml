@@ -7,6 +7,7 @@
         Title="MainWindow"
         Width="800"
         Height="450"
+        Background="DarkSlateGray"
         mc:Ignorable="d">
     <Grid x:Name="OuterGrid">
         <Grid.RowDefinitions>
@@ -21,7 +22,8 @@
             <ColumnDefinition Width="0.2*" />
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="1"
-              Grid.Column="1">
+              Grid.Column="1"
+              Style="{StaticResource BoardGameGridLayer1}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -49,29 +51,43 @@
             <Ellipse Name="EllipsePlayer"
                      Grid.Row="0"
                      Grid.Column="0"
-                     Fill="Crimson" />
+                     Fill="Crimson">
+                <Ellipse.Effect>
+                    <DropShadowEffect />
+                </Ellipse.Effect>
+            </Ellipse>
             <Ellipse Name="EllipseRnd"
                      Grid.Row="9"
                      Grid.Column="9"
-                     Fill="Green" />
+                     Fill="Green">
+                <Ellipse.Effect>
+                    <DropShadowEffect />
+                </Ellipse.Effect>
+            </Ellipse>
         </Grid>
         <StackPanel Grid.Row="1"
                     Grid.Column="2">
-            <Button Name="ButtonUP"
-                    Height="20"
-                    Click="ButtonUP_OnClick"
+            <Rectangle Height="20" />
+            <Rectangle Height="120" />
+            <Button Name="ButtonUp"
+                    Width="60"
+                    Height="60"
+                    Click="ButtonUp_OnClick"
                     Content="Up" />
-            <Button Name="ButtonDOWN"
-                    Height="20"
-                    Click="ButtonDOWN_OnClick"
+            <Button Name="ButtonDown"
+                    Width="60"
+                    Height="60"
+                    Click="ButtonDown_OnClick"
                     Content="Down" />
-            <Button Name="ButtonLEFT"
-                    Height="20"
-                    Click="ButtonLEFT_OnClick"
+            <Button Name="ButtonLeft"
+                    Width="60"
+                    Height="60"
+                    Click="ButtonLeft_OnClick"
                     Content="Left" />
-            <Button Name="ButtonRIGHT"
-                    Height="20"
-                    Click="ButtonRIGHT_OnClick"
+            <Button Name="ButtonRight"
+                    Width="60"
+                    Height="60"
+                    Click="ButtonRight_OnClick"
                     Content="Right" />
         </StackPanel>
     </Grid>
