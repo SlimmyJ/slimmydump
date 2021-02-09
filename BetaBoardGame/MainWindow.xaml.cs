@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,14 +26,17 @@ namespace BetaBoardGame
         public int Locationy = 0;
         public int Locationx = 0;
 
-        public int Enemylocationx = 9;
-        public int Enemylocationy = 9;
+        public int Enemylocationx = 4;
+        public int Enemylocationy = 4;
 
         public MainWindow()
         {
             InitializeComponent();
             Grid.SetRow(EllipsePlayer, Locationy);
             Grid.SetColumn(EllipsePlayer, Locationx);
+
+            Grid.SetRow(EllipseRnd, Enemylocationy);
+            Grid.SetColumn(EllipseRnd, Enemylocationx);
 
             var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
             timer.Tick += Timer;
@@ -44,12 +48,17 @@ namespace BetaBoardGame
             var rand = new Random();
             var enemymovement = rand.Next(1, 5);
 
+            if (Enemylocationx == Locationx && Enemylocationy == Locationy)
+            {
+                MessageBox.Show("Hit");
+            }
+
             switch (enemymovement)
             {
                 case 1:
                     if (Enemylocationx == 9)
                     {
-                        Enemylocationx = 9;
+                        Enemylocationx = 8;
                     }
                     else
                     {
@@ -61,7 +70,7 @@ namespace BetaBoardGame
                 case 2:
                     if (Enemylocationx == 0)
                     {
-                        Enemylocationx = 0;
+                        Enemylocationx = 1;
                     }
                     else
                     {
@@ -74,25 +83,26 @@ namespace BetaBoardGame
                 case 3:
                     if (Enemylocationy == 0)
                     {
-                        Enemylocationy = 0;
+                        Enemylocationy = 1;
                     }
                     else
                     {
                         Enemylocationy--;
                     }
-                    Grid.SetRow(EllipseRnd, Locationy);
+                    Grid.SetRow(EllipseRnd, Enemylocationy);
                     break;
 
                 case 4:
                     if (Enemylocationy == 9)
                     {
-                        Enemylocationy = 9;
+                        Enemylocationy = 8;
                     }
                     else
                     {
                         Enemylocationy++;
                     }
-                    Grid.SetRow(EllipseRnd, Locationy);
+                    Grid.SetRow(EllipseRnd, Enemylocationy);
+
                     break;
             }
         }

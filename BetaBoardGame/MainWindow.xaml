@@ -53,7 +53,7 @@
                      Grid.Column="0"
                      Fill="Crimson">
                 <Ellipse.Effect>
-                    <DropShadowEffect />
+                    <BlurEffect KernelType="Gaussian" />
                 </Ellipse.Effect>
             </Ellipse>
             <Ellipse Name="EllipseRnd"
