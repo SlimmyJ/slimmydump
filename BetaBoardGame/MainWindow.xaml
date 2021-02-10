@@ -21,10 +21,49 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="0.2*" />
         </Grid.ColumnDefinitions>
+        <!--#region Rectangles that set the horizontal board colours-->
+        <Rectangle Grid.Row="1"
+                   Grid.RowSpan="9"
+                   Fill="#73B2F5" />
+        <Rectangle Grid.Row="0"
+                   Grid.RowSpan="10"
+                   Fill="#73B2F5" />
+        <Rectangle Grid.Row="9"
+                   Grid.ColumnSpan="10"
+                   Fill="#efefef" />
+        <Rectangle Grid.Row="8"
+                   Grid.ColumnSpan="10"
+                   Fill="RosyBrown" />
+        <Rectangle Grid.Row="7"
+                   Grid.ColumnSpan="10"
+                   Fill="#efefef" />
+        <Rectangle Grid.Row="6"
+                   Grid.ColumnSpan="10"
+                   Fill="RosyBrown" />
+        <Rectangle Grid.Row="5"
+                   Grid.ColumnSpan="10"
+                   Fill="#efefef" />
+        <Rectangle Grid.Row="4"
+                   Grid.ColumnSpan="10"
+                   Fill="RosyBrown" />
+        <Rectangle Grid.Row="3"
+                   Grid.ColumnSpan="10"
+                   Fill="#efefef" />
+        <Rectangle Grid.Row="2"
+                   Grid.ColumnSpan="10"
+                   Fill="RosyBrown" />
+        <Rectangle Grid.Row="1"
+                   Grid.ColumnSpan="10"
+                   Fill="#efefef" />
+        <Rectangle Grid.Row="0"
+                   Grid.ColumnSpan="10"
+                   Fill="RosyBrown" />
+        <!--#endregion-->
         <Grid Grid.Row="1"
               Grid.Column="1"
               Style="{StaticResource BoardGameGridLayer1}">
             <Grid.ColumnDefinitions>
+                <!--#region Columns-->
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
@@ -35,8 +74,10 @@
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
+                <!--#endregion-->
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <!--#region Rows-->
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
@@ -47,6 +88,7 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
+                <!--#endregion-->
             </Grid.RowDefinitions>
             <Ellipse Name="EllipsePlayer"
                      Grid.Row="0"
@@ -56,10 +98,13 @@
                     <BlurEffect KernelType="Gaussian" />
                 </Ellipse.Effect>
             </Ellipse>
-            <Ellipse Name="EllipseRnd"
+            <Ellipse x:Name="EllipseRng"
                      Grid.Row="9"
                      Grid.Column="9"
                      Fill="Green">
+                <Ellipse.Stroke>
+                    <ImageBrush ImageSource="/HP Envy 15.png" />
+                </Ellipse.Stroke>
                 <Ellipse.Effect>
                     <DropShadowEffect />
                 </Ellipse.Effect>
@@ -72,21 +117,24 @@
             <Button Name="ButtonUp"
                     Width="60"
                     Height="60"
+                    HorizontalAlignment="Left"
                     Click="ButtonUp_OnClick"
                     Content="Up" />
+            <Button Name="ButtonLeft"
+                    Width="60"
+                    Height="60"
+                    HorizontalAlignment="Left"
+                    Click="ButtonLeft_OnClick"
+                    Content="Left" />
             <Button Name="ButtonDown"
                     Width="60"
                     Height="60"
                     Click="ButtonDown_OnClick"
                     Content="Down" />
-            <Button Name="ButtonLeft"
-                    Width="60"
-                    Height="60"
-                    Click="ButtonLeft_OnClick"
-                    Content="Left" />
             <Button Name="ButtonRight"
                     Width="60"
                     Height="60"
+                    HorizontalAlignment="Right"
                     Click="ButtonRight_OnClick"
                     Content="Right" />
         </StackPanel>

@@ -25,9 +25,14 @@ namespace BetaBoardGame
     {
         public int Locationy = 0;
         public int Locationx = 0;
+        public const int MinClampy = 9; //out of bounds
+        public const int MinClampx = 9;
 
         public int Enemylocationx = 4;
         public int Enemylocationy = 4;
+
+        public int Ongridlocationx = 5;
+        public int Ongridlocationy = 5;
 
         public MainWindow()
         {
@@ -35,8 +40,8 @@ namespace BetaBoardGame
             Grid.SetRow(EllipsePlayer, Locationy);
             Grid.SetColumn(EllipsePlayer, Locationx);
 
-            Grid.SetRow(EllipseRnd, Enemylocationy);
-            Grid.SetColumn(EllipseRnd, Enemylocationx);
+            Grid.SetRow(EllipseRng, Enemylocationy);
+            Grid.SetColumn(EllipseRng, Enemylocationx);
 
             var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
             timer.Tick += Timer;
@@ -64,7 +69,7 @@ namespace BetaBoardGame
                     {
                         Enemylocationx++;
                     }
-                    Grid.SetColumn(EllipseRnd, Enemylocationx);
+                    Grid.SetColumn(EllipseRng, Enemylocationx);
                     break;
 
                 case 2:
@@ -77,7 +82,7 @@ namespace BetaBoardGame
                         Enemylocationx--;
                     }
 
-                    Grid.SetColumn(EllipseRnd, Enemylocationx);
+                    Grid.SetColumn(EllipseRng, Enemylocationx);
                     break;
 
                 case 3:
@@ -89,7 +94,7 @@ namespace BetaBoardGame
                     {
                         Enemylocationy--;
                     }
-                    Grid.SetRow(EllipseRnd, Enemylocationy);
+                    Grid.SetRow(EllipseRng, Enemylocationy);
                     break;
 
                 case 4:
@@ -101,7 +106,7 @@ namespace BetaBoardGame
                     {
                         Enemylocationy++;
                     }
-                    Grid.SetRow(EllipseRnd, Enemylocationy);
+                    Grid.SetRow(EllipseRng, Enemylocationy);
 
                     break;
             }
@@ -118,6 +123,7 @@ namespace BetaBoardGame
                 Locationy--;
             }
             Grid.SetRow(EllipsePlayer, Locationy);
+            CheckSpecialTile();
         }
 
         private void ButtonDown_OnClick(object sender, RoutedEventArgs e)
@@ -131,6 +137,7 @@ namespace BetaBoardGame
                 Locationy++;
             }
             Grid.SetRow(EllipsePlayer, Locationy);
+            CheckSpecialTile();
         }
 
         private void ButtonLeft_OnClick(object sender, RoutedEventArgs e)
@@ -144,6 +151,17 @@ namespace BetaBoardGame
                 Locationx--;
             }
             Grid.SetColumn(EllipsePlayer, Locationx);
+            CheckSpecialTile();
+        }
+
+        public void CheckSpecialTile()
+        {
+            if (Locationx == Ongridlocationx && Locationy == Ongridlocationy)
+            {
+                EllipsePlayer.Fill = new SolidColorBrush(Colors.Black);
+                Locationx = Locationx - 1;
+                Grid.SetRow(EllipsePlayer, Locationx);
+            }
         }
 
         private void ButtonRight_OnClick(object sender, RoutedEventArgs e)
@@ -157,6 +175,7 @@ namespace BetaBoardGame
                 Locationx++;
             }
             Grid.SetColumn(EllipsePlayer, Locationx);
+            CheckSpecialTile();
         }
     }
 }

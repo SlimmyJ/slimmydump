@@ -6,4 +6,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="HP Envy 15.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="HP Envy 15.png" />
+  </ItemGroup>
+
 </Project>
